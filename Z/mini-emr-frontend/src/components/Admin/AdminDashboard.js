@@ -1,12 +1,46 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { adminAPI } from "../../api/api";
 
 function AdminDashboard() {
+  const [connectionStatus, setConnectionStatus] = useState("Testing connection...");
+  const [isConnected, setIsConnected] = useState(false);
+
+  useEffect(() => {
+    testConnection();
+  }, []);
+
+  const testConnection = async () => {
+    try {
+      console.log("Testing backend connection...");
+      const response = await adminAPI.get("patients/");
+      console.log("Backend connection successful:", response.data);
+      setConnectionStatus("✅ Backend connected successfully");
+      setIsConnected(true);
+    } catch (error) {
+      console.error("Backend connection failed:", error);
+      setConnectionStatus(`❌ Backend connection failed: ${error.message}`);
+      setIsConnected(false);
+    }
+  };
+
   return (
     <div className="container">
       <div className="card">
         <div className="header">
           <h2>Admin Dashboard</h2>
           <a href="/" className="btn btn-secondary">Patient Portal</a>
+        </div>
+
+        {/* Connection Status */}
+        <div style={{ 
+          padding: '10px', 
+          margin: '10px 0', 
+          backgroundColor: isConnected ? '#d4edda' : '#f8d7da',
+          border: `1px solid ${isConnected ? '#c3e6cb' : '#f5c6cb'}`,
+          borderRadius: '4px'
+        }}>
+          <strong>Backend Status:</strong> {connectionStatus}
         </div>
 
         <div className="dashboard-grid">
