@@ -23,11 +23,14 @@ function PatientList() {
 
   const fetchPatients = async () => {
     try {
+      console.log("Fetching patients from:", adminAPI.defaults.baseURL + "patients/");
       const res = await adminAPI.get("patients/");
+      console.log("Patients response:", res.data);
       setPatients(res.data);
       setLoading(false);
     } catch (err) {
       console.error("Error fetching patients:", err);
+      console.error("Error details:", err.response?.data);
       setLoading(false);
     }
   };
