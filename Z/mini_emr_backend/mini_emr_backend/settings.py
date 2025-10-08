@@ -150,5 +150,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",                     # local dev
-    "https://z-frontend-jzpg.onrender.com",      # deployed frontend
+    "https://mini-emr-frontend.onrender.com",   # deployed frontend
+    "https://z-frontend-jzpg.onrender.com",     # old deployed frontend
 ]
