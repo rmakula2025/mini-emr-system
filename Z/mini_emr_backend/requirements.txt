@@ -1,0 +1,9 @@
+Django==5.0.6
+djangorestframework==3.15.1
+mongoengine==0.29.1
+pymongo==4.8.0
+django-cors-headers==4.9.0
+gunicorn==21.2.0
+whitenoise==6.6.0
+
+
