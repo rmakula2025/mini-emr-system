@@ -4,8 +4,8 @@ services:
     name: mini-emr-backend
     env: python
     plan: free
-    buildCommand: "cd mini_emr_backend && pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate"
-    startCommand: "cd mini_emr_backend && gunicorn mini_emr_backend.wsgi"
+    buildCommand: "cd Z/mini_emr_backend && pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate"
+    startCommand: "cd Z/mini_emr_backend && gunicorn mini_emr_backend.wsgi"
     envVars:
       - key: DEBUG
         value: false
@@ -17,8 +17,8 @@ services:
     name: mini-emr-frontend
     env: static
     plan: free
-    buildCommand: "cd mini-emr-frontend && npm install && npm run build"
-    staticPublishPath: ./mini-emr-frontend/build
+    buildCommand: "cd Z/mini-emr-frontend && npm install && npm run build"
+    staticPublishPath: ./Z/mini-emr-frontend/build
     envVars:
       - key: REACT_APP_API_URL
         value: https://mini-emr-backend.onrender.com
