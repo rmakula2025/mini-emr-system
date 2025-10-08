@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { patientAPI } from "../../api/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login({ setUser }) {
   const [email, setEmail] = useState("");
@@ -52,7 +52,7 @@ function Login({ setUser }) {
           </button>
         </form>
         <div style={{marginTop: '20px', textAlign: 'center'}}>
-          <a href="/admin" style={{color: '#007bff'}}>Admin Portal</a>
+          <Link to="/admin" style={{color: '#007bff'}}>Admin Portal</Link>
         </div>
       </div>
     </div>

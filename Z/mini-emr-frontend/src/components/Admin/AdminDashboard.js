@@ -29,7 +29,7 @@ function AdminDashboard() {
       <div className="card">
         <div className="header">
           <h2>Admin Dashboard</h2>
-          <a href="/" className="btn btn-secondary">Patient Portal</a>
+          <Link to="/" className="btn btn-secondary">Patient Portal</Link>
         </div>
 
         {/* Connection Status */}
