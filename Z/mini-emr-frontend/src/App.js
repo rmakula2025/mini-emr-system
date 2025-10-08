@@ -40,6 +40,13 @@ function App() {
         <Route path="/admin/patients" element={<PatientList />} />
         <Route path="/admin/medications" element={<MedicationList />} />
         <Route path="/admin/appointments" element={<AppointmentList />} />
+        
+        {/* Catch-all route for undefined paths */}
+        <Route path="*" element={<div style={{padding: '20px', textAlign: 'center'}}>
+          <h2>Page Not Found</h2>
+          <p>The page you're looking for doesn't exist.</p>
+          <a href="/" style={{color: '#007bff'}}>Go to Home</a>
+        </div>} />
       </Routes>
     </BrowserRouter>
   );
